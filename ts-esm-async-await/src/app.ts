@@ -8,11 +8,15 @@ import { CustomErrorInterface } from './lib/errors/CustomError';
 import { notFoundErr } from './lib/errors/Errors';
 import { router as appRouter } from './api/routes/app.route';
 import { router as demoRouter } from './api/routes/demo.route';
+import { prettify, folder } from '@collabo-community/building-blocks';
 
 dotenv.config();
 
 const app: Express = express();
 
+prettify.log.success('Welldone!');
+prettify.log.success(`${folder.content.list({targetFolder:"./"})}`);
+prettify.log.success(`${folder.content.exists({searchFolder:"./", searchFor: '.env'})}`);
 app.use(morgan('dev'));
 app.use(express.urlencoded({
   extended: false
